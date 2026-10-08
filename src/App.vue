@@ -65,7 +65,7 @@ const setNewGame = () => {
 </script>
 <template>
   <div class="content">
-    <section class="players flex justify-between w-[30%] m-auto pb-10">
+    <section class="players container flex justify-between pb-10">
       <div
         v-for="player in players"
         :key="player.id"
@@ -76,7 +76,7 @@ const setNewGame = () => {
         <p>Score : {{ player.score }}</p>
       </div>
     </section>
-    <section class="game m-auto aspect-square w-[30%]">
+    <section class="game container aspect-square">
       <div class="game_grid" :key="cellKey">
         <cell
           v-for="(_cell, index) in NB_CELLS"
@@ -105,6 +105,9 @@ const setNewGame = () => {
 .content {
   @apply text-slate-50;
 }
+.container{
+  @apply m-auto w-[85%] md:w-[75%] lg:w-[65%] xl:w-[45%] 2xl:w-[30%];
+}
 .game_grid {
   @apply grid grid-cols-3 grid-rows-3 w-full h-full;
 }
@@ -117,7 +120,7 @@ const setNewGame = () => {
 .btn {
   @apply text-white font-semibold antialiased rounded-md;
   &.btn-tag {
-    @apply bg-blue-500 hover:bg-blue-700 py-1 px-2 text-sm;
+    @apply bg-blue-500 hover:bg-blue-700 py-1 px-2 text-xs md:text-sm;
   }
   &.btn-cta {
     @apply bg-blue-400 hover:bg-blue-500 py-2 px-4;

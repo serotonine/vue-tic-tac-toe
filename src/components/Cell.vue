@@ -17,12 +17,14 @@ const getSymbol = () => {
     :class="[`item-${id}`, { disabled: symbol }]"
     @click="getSymbol()"
   >
-    {{ symbol && symbol }}
+    <Transition name="symbol">
+      <span v-if="symbol">{{ symbol }}</span>
+    </Transition>
   </div>
 </template>
 <style scoped>
 .grid_item {
-  @apply border-slate-100 flex flex-col justify-center items-center text-9xl cursor-pointer;
+  @apply border-slate-100 flex flex-col justify-center items-center text-8xl sm:text-9xl cursor-pointer;
   &.disabled {
     @apply pointer-events-none;
   }
@@ -57,5 +59,13 @@ const getSymbol = () => {
 .item-7,
 .item-8 {
   @apply border-t-2;
+}
+
+/* Animation */
+.symbol-enter-active {
+  transition: transform 0.2s linear;
+}
+.symbol-enter-from {
+  transform: scale(80%);
 }
 </style>
