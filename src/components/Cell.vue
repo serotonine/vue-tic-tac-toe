@@ -4,11 +4,11 @@ const props = defineProps({
   id: { type: Number, required: true },
   currentPlayer: { type: Object },
 });
-const emit = defineEmits(['checked']);
+const emit = defineEmits(["checked"]);
 const symbol = ref(null);
 const getSymbol = () => {
   symbol.value = props.currentPlayer.symbol;
-  emit('checked', props.id);
+  emit("checked", props.id);
 };
 </script>
 <template>
